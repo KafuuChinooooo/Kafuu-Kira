@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Grimoire of Friendship</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1210;--leaf:#e9d9b4;--leaf2:#d8c08a;--ink:#3a2412;--gold:#c9a24b;--wine:#6b1d24;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0a09;--leaf:#e2d0a6;--leaf2:#cdb27a}}
+:root[data-theme="dark"]{--bg:#0f0a09;--leaf:#e2d0a6;--leaf2:#cdb27a}
+*{box-sizing:border-box}html{background:#0f0a09}
+body{margin:0;background:radial-gradient(circle at 50% 0,#33201a,var(--bg) 70%);color:var(--ink);font-family:'IM Fell English',Georgia,serif;font-size:1.1rem;line-height:1.6;min-height:100vh}
+h1,h2,h3,.cin{font-family:'Cinzel',Georgia,serif;letter-spacing:.08em}
+svg.s{width:72px;height:72px;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round}
+.cover{max-width:520px;margin:6vh auto 0;padding:2.5rem 1.5rem;text-align:center;background:linear-gradient(145deg,#4a1a1f,var(--wine));border:3px solid var(--gold);border-radius:10px 24px 24px 10px;box-shadow:0 0 0 6px #2a0e11,0 20px 60px #000;color:var(--gold);cursor:pointer}
+.cover h1{font-size:clamp(1.6rem,6vw,2.4rem);margin:.8rem 0 .2rem}
+.cover p{margin:.3rem 0;font-style:italic;color:#e8cf8a}
+.cover svg.s{width:150px;height:150px;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hint{opacity:.7;font-size:.9rem;margin-top:1.5rem}
+#book{display:none;max-width:640px;margin:2rem auto;padding:0 1rem}
+.page{background:var(--leaf);background-image:radial-gradient(circle at 20% 10%,#fff3,transparent 50%),linear-gradient(var(--leaf),var(--leaf2));border:1px solid #8a6b30;border-radius:4px 14px 14px 4px;padding:1.6rem 1.4rem;margin:0 0 1.6rem;box-shadow:inset 8px 0 14px #0003,0 10px 30px #000a;position:relative;overflow:hidden}
+.page::after{content:"";position:absolute;inset:8px;border:1px double #8a6b30;pointer-events:none;border-radius:2px}
+.page h2{text-align:center;margin:.2rem 0;color:var(--wine);font-size:1.4rem}
+.sub{text-align:center;font-style:italic;margin:0 0 .8rem}
+.page svg.s{display:block;margin:.5rem auto;stroke:var(--wine)}
+.meander{height:14px;margin:.6rem 0;background:repeating-linear-gradient(90deg,var(--wine) 0 4px,transparent 4px 8px,var(--wine) 8px 10px,transparent 10px 20px);opacity:.55;clip-path:polygon(0 30%,100% 30%,100% 70%,0 70%)}
+.spell{border:1px dashed var(--wine);border-radius:6px;padding:.7rem .9rem;margin-top:.8rem;text-align:center}
+.spell em{display:block;color:var(--wine)}
+button{font-family:'Cinzel',serif;background:var(--wine);color:var(--gold);border:1px solid var(--gold);padding:.45rem 1rem;border-radius:4px;cursor:pointer;margin-top:.6rem;letter-spacing:.1em}
+button:hover{filter:brightness(1.3)}
+.glow{animation:glow 1.4s}
+@keyframes glow{0%{box-shadow:0 0 0 #ffd76a}40%{box-shadow:0 0 40px 10px #ffd76acc,inset 0 0 30px #ffd76a88}100%{box-shadow:0 0 0 #ffd76a}}
+.fin{text-align:center;padding:1rem}
+.fin textarea{width:100%;background:transparent;border:1px solid var(--wine);font:inherit;color:var(--ink);padding:.5rem;border-radius:4px}
+.sp{position:fixed;pointer-events:none;color:#ffd76a;font-size:1.2rem;animation:rise 1.2s forwards}
+@keyframes rise{to{transform:translateY(-80px);opacity:0}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="athena" viewBox="0 0 72 72"><circle cx="36" cy="36" r="30"/><path d="M12 30q24-22 48 0M12 30q24 18 48 0"/><circle cx="36" cy="30" r="6"/><path d="M36 48v14M28 56h16"/></symbol>
+<symbol id="apollo" viewBox="0 0 72 72"><circle cx="36" cy="36" r="12"/><path d="M36 4v14M36 54v14M4 36h14M54 36h14M13 13l10 10M49 49l10 10M59 13L49 23M23 49L13 59"/></symbol>
+<symbol id="hermes" viewBox="0 0 72 72"><path d="M36 6v60M26 14q-18-2-20 8q12-2 20 2M46 14q18-2 20 8q-12-2-20 2M28 30q8 6 16 0M28 42q8 6 16 0"/></symbol>
+<symbol id="hestia" viewBox="0 0 72 72"><path d="M36 6q22 22 4 38q-4 4-4 10q-24-14-4-30q2 8 4 4q4-8 0-22z"/><path d="M18 66h36M24 60h24"/></symbol>
+<symbol id="artemis" viewBox="0 0 72 72"><path d="M44 8a28 28 0 1 0 0 56a22 22 0 1 1 0-56z"/><path d="M8 64L64 8M64 8l-12 2M64 8l-2 12"/></symbol>
+<symbol id="main" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="34"/><path d="M50 6l30 82-80-52h100L20 88z"/><circle cx="50" cy="50" r="6"/></symbol>
+</defs></svg>
+
+<div class="cover" id="cover" tabindex="0" role="button" aria-label="Open the grimoire">
+<svg class="s"><use href="#main" width="150" height="150"/></svg>
+<h1>The Codex of Two Threads</h1>
+<p>Bound for <b id="fname">My Dearest Friend</b></p>
+<p>— by the hand of Niko —</p>
+<p class="hint">✦ touch the seal to open ✦</p>
+</div>
+
+<main id="book">
+<section class="page"><h2>Dedication</h2><p class="sub">Folio I</p><div class="meander"></div>
+<p>Within these leaves are bound the charms I have woven for you, born of my faith that magic is real. May these words carry that quiet power to you. They are written with all sincerity: you have made my days brighter, and I am grateful you exist in them.</p>
+<p style="text-align:center">☾ ✦ ☀</p></section>
+
+<section class="page"><svg class="s"><use href="#athena" width="72" height="72"/></svg>
+<h2>Charm of Athena</h2><p class="sub">for wisdom &amp; good counsel</p><div class="meander"></div>
+<p>Owl-eyed and steady, you always know the clever thing to say and truly listen when it matters. Yours to carry, today and every day after, I bind this charm of Athena to you— may her wisdom always guard your mind and light your path.</p>
+<div class="spell"><em>Sapientia    Lucet</em>“May your plans be sharp and your doubts be small.”<br><button>Cast</button></div></section>
+
+<section class="page"><svg class="s"><use href="#apollo" width="72" height="72"/></svg>
+<h2>Charm of Apollo</h2><p class="sub">for light &amp; laughter</p><div class="meander"></div>
+<p>Where you walk in, the room warms up. Your humor and your creativity are a golden sun in my sky— truly, you are my sunshine. Yours to carry, today and every day after, I cast this charm of Apollo so that warmth, light, and bright laughter always return to you.</p>
+<div class="spell"><em>Lux Aurea</em>“May every day hand you a reason to smile.”<br><button>Cast</button></div></section>
+
+<section class="page"><svg class="s"><use href="#hermes" width="72" height="72"/></svg>
+<h2>Charm of Hermes</h2><p class="sub">for loyalty &amp; swift help</p><div class="meander"></div>
+<p>Whenever I need a hand, you arrive on winged sandals— a messenger of good news, a friend across every road. Yours to carry, today and every day after, I echo your own call to Lord Hermes and cast this charm so that swift help, safe travels, and loyal company always find their way back to you.</p>
+<div class="spell"><em>Pennae Fidei</em>“May the road rise gently to meet your feet.”<br><button>Cast</button></div></section>
+
+<section class="page"><svg class="s"><use href="#hestia" width="72" height="72"/></svg>
+<h2>Charm of Hestia</h2><p class="sub">for warmth &amp; home</p><div class="meander"></div>
+<p>You are a hearth-fire to everyone around you: kind, patient, and comforting. Being near you feels like home. Yours to carry, today and every day after, I cast this charm of Hestia so that peace, safety, and the same gentle warmth you give others always surround you.</p>
+<div class="spell"><em>Ignis Domus</em>“May your flame never be dimmed.”<br><button>Cast</button></div></section>
+
+<section class="page"><svg class="s"><use href="#artemis" width="72" height="72"/></svg>
+<h2>Charm of Artemis</h2><p class="sub">for courage &amp; freedom</p><div class="meander"></div>
+<p>I know within time you'll be able to chase what you want with a steady aim and a free heart. Never trade that wildness for anyone. Yours to carry, today and every day after, I cast this charm of Artemis so that fierce courage, true freedom, and an unerring aim always stay yours.</p>
+<div class="spell"><em>Luna Libera</em>“May your arrow land true under every moon.”<br><button>Cast</button></div></section>
+
+<section class="page fin"><h2>Die letzte Seite</h2><div class="meander"></div>
+<p>Thank you for being my friend. ✦ For someone who doesn't believe in nevers, I know our threads aren't done weaving together yet. Our paths will cross again— the Gods will it, and we are their favorite entertainment, after all.</p>
+<p class="sub">Not every spell in these leaves has to be mine. Take the quill and speak your own blessing into being. This grimoire is yours now. 𝐈 𝐋𝐎𝐕𝐄 𝐘𝐎𝐔 𝐒𝐎 𝐌𝐔𝐂𝐇</p>
+<textarea id="inc" rows="3" placeholder="Speak your incantation…"></textarea>
+<button id="inscribe">Inscribe</button> <button id="viewInc">View Incantations</button>
+<div id="incList" style="display:none;text-align:left;margin-top:1rem"></div>
+<p><button id="seal">Seal the Book</button></p></section>
+</main>
+
+<script>
+const FRIEND="My Dearest Friend"; /* change me to your friend's name */
+document.getElementById('fname').textContent=FRIEND;
+const cover=document.getElementById('cover'),book=document.getElementById('book');
+function open_(){cover.style.display='none';book.style.display='block';scrollTo(0,0)}
+cover.onclick=open_;cover.onkeydown=e=>{if(e.key==='Enter'||e.key===' ')open_()};
+function spark(x,y){for(let i=0;i<8;i++){const s=document.createElement('span');s.className='sp';s.textContent=['✦','✧','·','☾'][i%4];s.style.left=x+(Math.random()*80-40)+'px';s.style.top=y+(Math.random()*30-15)+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),1200)}}
+document.querySelectorAll('.spell button').forEach(b=>b.onclick=e=>{const p=b.closest('.page');p.classList.remove('glow');void p.offsetWidth;p.classList.add('glow');spark(e.clientX,e.clientY)});
+document.getElementById('seal').onclick=e=>{spark(e.clientX,e.clientY);book.style.display='none';cover.style.display='block';scrollTo(0,0)};
+const KEY='grimoire-incantations',list=document.getElementById('incList');
+let mine=[],others=[],myDoc=null;
+try{mine=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
+function load(){return mine.concat(others)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(mine))}catch(e){}if(myDoc)myDoc.set({items:mine}).catch(()=>{})}
+
+function render(){const a=load();list.innerHTML='';if(!a.length){list.innerHTML='<p class="sub">The pages are still blank…</p>';return}
+a.forEach((t,i)=>{const d=document.createElement('div');d.className='spell';d.style.textAlign='left';const q=document.createElement('em');q.textContent='Incantation '+(i+1);d.appendChild(q);d.appendChild(document.createTextNode('“'+t+'”'));list.appendChild(d)})}
+document.getElementById('inscribe').onclick=e=>{const t=document.getElementById('inc'),v=t.value.trim();if(!v)return;mine.push(v);save();t.value='';spark(e.clientX,e.clientY);render()};
+document.getElementById('viewInc').onclick=()=>{const s=list.style.display==='none';list.style.display=s?'block':'none';if(s)render()};
+</script></body></html>
